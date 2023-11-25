@@ -16,6 +16,7 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
@@ -25,6 +26,7 @@
     "express-session": "^1.17.3",
     "framer-motion": "^10.16.5",
     "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
     "mongod": "^2.0.0",
     "mongoose": "^7.6.5",
