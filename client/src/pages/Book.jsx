@@ -23,8 +23,6 @@ const Book = () => {
     const bookRequest = useBookData()
     const user = useAuthentication()
 
-    console.log( '#### BOOK USER ####', user )
-
     useEffect( () => {
         bookRequest.getBookBySlug( slug )
     }, [] )

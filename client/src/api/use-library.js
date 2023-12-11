@@ -98,8 +98,6 @@ export default function useLibrary( userId ) {
             return loanHistory.isFetching
         },
         get checkoutDataAfterUpdate() {
-            console.log( 'loanControl.data', loanControl.data )
-
             const data = loanControl.isComplete && loanControl.data
             const virtual = computeVirtualFields( data )
             Object.assign( data, virtual )
@@ -112,7 +110,6 @@ export default function useLibrary( userId ) {
             return loanControl.isComplete
         },
         get isCheckoutStatusCheckPending() {
-            console.log( 'loanStatus.isFetching', loanStatus.isFetching )
             return loanStatus.isFetching
         },
         get isBookAvailabilityCheckPending() {
@@ -131,11 +128,9 @@ export default function useLibrary( userId ) {
             loanHistory.fetch( '/loans', { query: { userId } }, refetch )
         },
         getBorrowStatus( bookId ) {
-            console.log( 'getBorrowStatus\n\n', { userId, bookId, isReturned: false } )
             loanStatus.fetch( `/loans`, { query: { userId, bookId, isReturned: false } } )
         },
         borrow( bookId ) {
-            console.log( 'BORROW: ', userId )
             const dueDate = new Date()
             const loanData = {
                 bookId,

@@ -26,8 +26,6 @@ export default function BorrowControl( { book, userId, isSignedIn } ) {
         }
     }, [ userId, bookId ] )
 
-    console.log( ' library.isCheckoutStatusChangePending ', library.isCheckoutStatusChangePending )
-
     if ( library.isCheckoutStatusChangePending || library.isCheckoutStatusCheckPending || library.isBookAvailabilityCheckPending ) {
         return <CircularProgress />
     }

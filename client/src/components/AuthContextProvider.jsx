@@ -14,7 +14,6 @@ export function AuthContextProvider( { children } ) {
 
     const flags = {
         get isTokenExpired() {
-            console.log( 'Token expires:', new Date( session.expires ) )
             return _flags.current.isTokenExpired
         },
         get isUserSignedOut() {

@@ -105,7 +105,6 @@ export default function useFetch( fetchJson = true, defaultHeaders = undefined )
             prevQuery.current = stringifiedQuery
 
             // Apply header override
-            console.log( current )
             const { options } = current
 
             console.log( 'Fetching URL:', requestUrl, ' Query:', query, ' Body:', options.body, ' Headers:', options.headers )
@@ -186,9 +185,8 @@ export default function useFetch( fetchJson = true, defaultHeaders = undefined )
             triggerFetch()
         },
         refetch() {
-            console.log( 'REFETCH???', fetchStatus.isInitialized, requestData.current )
             if ( fetchStatus.isInitialized ) {
-                console.log( 'REFETCH!!!!!!!!!!!!!!!!!!!!', requestData.current )
+                console.log('Fetching fresh results. URL:',)requestData.current.url
                 prevQuery.current = undefined
                 triggerFetch()
             }

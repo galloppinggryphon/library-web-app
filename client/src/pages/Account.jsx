@@ -82,7 +82,6 @@ export default function Account() {
 
     useEffect( () => {
         if ( userData.status.isComplete ) {
-            console.log( 'RESET form' )
             setFormData( {
                 name: userData.data.name,
                 email: userData.data.email,
@@ -238,10 +237,7 @@ export default function Account() {
 }
 
 function BookHistoryItem( { item: _item, userId } ) {
-    console.log( '<BookHistoryItem>', _item )
-
     const library = useLibrary( userId )
-
     const [ item, setItem ] = useState( _item )
     const status = item.statusMeta
 
@@ -254,8 +250,6 @@ function BookHistoryItem( { item: _item, userId } ) {
         if ( ! item._id || ! userId ) {
             return
         }
-
-        console.log( 'checkoutStatusChanged', library.checkoutDataAfterUpdate )
 
         if ( library.isCheckoutStatusChangeComplete ) {
             setItem( ( prev ) => ( { ...prev, ...library.checkoutDataAfterUpdate } ) )

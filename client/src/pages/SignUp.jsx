@@ -44,7 +44,6 @@ export default function SignUp() {
             [ name ]: value,
         } ) )
         validate( name, value )
-        console.log( name, value )
     }
 
     const handleSubmit = ( event ) => {

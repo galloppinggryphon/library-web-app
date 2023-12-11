@@ -41,7 +41,6 @@ export default function useAuthentication() {
     // Reset auth flags
     useEffect( () => {
         if ( ! isTokenValid && isSessionValid ) {
-            console.log( 'Token has expired.' )
             setIsSessionValid( false )
 
             if ( ! isTokenExpired ) {
