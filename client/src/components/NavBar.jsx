@@ -33,6 +33,7 @@ export function NavBar() {
             justifyContent={ isMobile ? 'flex-end' : 'space-between' }
             flexGrow="1"
             width="100%"
+            p={ 0 }
         >
             { isMobile ? (
                 <>
@@ -41,8 +42,9 @@ export function NavBar() {
                         aria-controls="simple-menu"
                         aria-haspopup="true"
                         onClick={ handleClick }
+                        sx={ { padding: 0 } }
                     >
-                        <MenuIcon />
+                        <MenuIcon sx={ { width: '50px !important', height: '50px !important' } } />
                     </IconButton>
                     <Menu
                         anchorEl={ anchorEl }
@@ -79,6 +81,7 @@ export function NavBar() {
                     alignItems="center"
                     justifyContent="space-between"
                     flexGrow="1"
+                    pb={ 1 }
                 >
                     <Stack direction="row" spacing={ 5 } alignItems="center">
                         <NavLink to="/">Home</NavLink>

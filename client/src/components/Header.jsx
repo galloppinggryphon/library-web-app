@@ -19,7 +19,7 @@ export default function Header() {
             mb={ 10 }
         >
             <Container>
-                <Stack direction="row" spacing={ 10 } p={ 2 } pb={ 8 } pt={ 8 } alignItems="end">
+                <Stack direction="row" spacing={ 10 } p={ 2 } pb={ { xs: 4, sm: 8 } } pt={ { xs: 4, sm: 8 } } alignItems="end">
                     <Box width="100%" maxWidth={ 200 }>
                         { /* Visually hidden header for screen readers */ }
                         <Box
@@ -32,7 +32,7 @@ export default function Header() {
                             <img src={ EtherealLogo } alt="Ethereral" />
                         </a>
                     </Box>
-                    <Stack direction="row" pb={ 1 } flexGrow="1">
+                    <Stack direction="row" flexGrow="1">
                         <NavBar />
                     </Stack>
                 </Stack>
