@@ -102,7 +102,7 @@ export default function Account() {
                 <Grid container spacing={ 6 }>
                     <Grid item xs={ 12 } md={ 6 }>
                         <Paper>
-                            <Box p={ 5 }>
+                            <Box p={ { xs: 2, sm: 3, m: 5 } }>
                                 <Typography variant="h5" component="h3" mb={ 4 }>
                                     Account Details
                                 </Typography>
@@ -206,7 +206,7 @@ export default function Account() {
                     </Grid>
                     <Grid item xs={ 12 } md={ 6 }>
                         <Paper>
-                            <Box p={ 5 }>
+                            <Box p={ { xs: 2, sm: 3, m: 5 } }>
                                 <Typography variant="h5" component="h3" mb={ 4 }>
                                     Borrow History
                                 </Typography>
@@ -276,46 +276,46 @@ function BookHistoryItem( { item: _item, userId } ) {
                         <Chip label={ status.text } color={ status.colour } size="small" />
                     </Box>
                 </Stack>
-                <Stack direction="row">
-                    <Stack flexGrow="1">
+                <Stack gap={ 2 }>
+                    <Stack flexGrow="1" direction="row" gap={ 2 }>
                         {
                             item.isCheckedOut &&
                                 <ListItemText
-                                    secondary={ `Due: ${ item.dueDateString }` }
+                                    secondary={ <>Due: <br /> { item.dueDateString } </> }
                                 />
                         }
                         {
                             ! item.isCheckedOut &&
                                 <ListItemText
-                                    secondary={ `Returned: ${ item.returnDateString }` }
+                                    secondary={ <>Returned: <br /> { item.returnDateString } </> }
                                 />
                         }
                         <ListItemText
-                            secondary={ `Borrowed: ${ item.loanDateString }` }
+                            secondary={ <>Borrowed: <br /> { item.loanDateString } </> }
                         />
                     </Stack>
-                    <Box>
+                    <Stack direction={ { xs: 'column', sm: 'row' } } gap={ 1 } justifyContent="stretch">
                         {
                             item.isCheckedOut && <>
                                 {
                                     library.isCheckoutStatusChangePending && <CircularProgress />
                                 }
                                 {
-                                    ! library.isCheckoutStatusChangePending && <Stack spacing={ 1 }>
+                                    ! library.isCheckoutStatusChangePending && <>
                                         <Button variant="contained" endIcon={ <BookIcon /> } onClick={ () => {
                                             // eslint-disable-next-line no-alert
                                             alert( `You can now pretend you're reading ${item.book.title}.\n\nWhen done, click OK.` )
-                                        } } >
+                                        } } sx={ { flex: '1' } }>
                                             Read Book
                                         </Button>
-                                        <Button variant="outlined" endIcon={ <InputIcon /> } onClick={ returnHandler }>
+                                        <Button variant="outlined" endIcon={ <InputIcon /> } onClick={ returnHandler } sx={ { flex: '1' } }>
                                             Return Now
                                         </Button>
-                                    </Stack>
+                                    </>
                                 }
                             </>
                         }
-                    </Box>
+                    </Stack>
                 </Stack>
             </CardContent>
         </Card>
