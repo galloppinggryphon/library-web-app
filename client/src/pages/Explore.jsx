@@ -64,9 +64,9 @@ const ExplorePage = () => {
 
     return (
         <Container>
-            <Container sx={ { mt: { xs: 3, sm: 0 } } }>
+            <Box>
                 <h1>Explore</h1>
-            </Container>
+            </Box>
             { bookRequest.status.isError && (
                 <Paper>
                     <Box p={ 3 }>An error occurred</Box>
@@ -81,6 +81,7 @@ const ExplorePage = () => {
                             alignItems="center"
                             mb={ 5 }
                             sx={ { flexWrap: 'wrap' } }
+                            rowGap={ 3 }
                         >
                             <TextField
                                 id="standard-name"
@@ -99,7 +100,7 @@ const ExplorePage = () => {
                                         </IconButton>
                                     ),
                                 } }
-                                sx={ { width: { xs: '70%', sm: 400 } } }
+                                sx={ { width: { xs: '100%', sm: 400 }, flex: '1' } }
                                 disabled={ isLoading }
                             />
 
