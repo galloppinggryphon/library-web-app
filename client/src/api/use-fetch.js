@@ -186,7 +186,7 @@ export default function useFetch( fetchJson = true, defaultHeaders = undefined )
         },
         refetch() {
             if ( fetchStatus.isInitialized ) {
-                console.log('Fetching fresh results. URL:',)requestData.current.url
+                console.log( 'Fetching fresh results. URL:', requestData.current.url )
                 prevQuery.current = undefined
                 triggerFetch()
             }
